@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/ico/windsnow1024.ico" type="image/x-icon">
+    <title>Document</title>
+    <style>
+        input.text{
+            margin: 10px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input class="text" type="text" id="username" placeholder="Username">
+        <input class="text" type="password" id="password" placeholder="Password">
+        <input class="text" type="text" id="value" placeholder="Value">
+        <button id="get">Get</button>
+        <button id="post">Post</button>
+        <button id="delete">Delete</button>
+    </div>
+
+    <script src="/js/axios.min.js"></script>
+    <script>
+        document.getElementById("get").onclick = function(){
+            axios.get("/UserData").then( res => {
+                console.log(res.data);
+            })
+        }
+        document.getElementById("post").onclick = function(){
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            axios.post("/UserData",{
+                NewData: {username: username, password: password}
+            }).then( res => {
+                console.log(res.data);
+            })
+        }
+        document.getElementById("delete").onclick = function(){
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var index = 0;
+            index = document.getElementById("value").value;
+            axios.delete("/UserData/" + index).then( res => {
+                console.log(res.data);
+            })
+        }
+    </script>
+</body>
+</html>
