@@ -17,7 +17,7 @@
 <body>
     <div>
         <input class="text" type="text" id="username" placeholder="Username">
-        <input class="text" type="password" id="password" placeholder="Password">
+        <input class="text" type="password" id="passwd" placeholder="Password">
         <input class="text" type="text" id="value" placeholder="Value">
         <button id="get">Get</button>
         <button id="post">Post</button>
@@ -33,16 +33,16 @@
         }
         document.getElementById("post").onclick = function(){
             var username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
+            var passwd = document.getElementById("passwd").value;
             axios.post("/UserData",{
-                NewData: {username: username, password: password}
+                NewData: {username: username, passwd: passwd}
             }).then( res => {
                 console.log(res.data);
             })
         }
         document.getElementById("delete").onclick = function(){
             var username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
+            var passwd = document.getElementById("passwd").value;
             var index = 0;
             index = document.getElementById("value").value;
             axios.delete("/UserData/" + index).then( res => {

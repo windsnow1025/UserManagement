@@ -1,10 +1,10 @@
 document.getElementById("login").onclick = function(){
     var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
+    var passwd = document.getElementById("passwd").value;
     var isMatch = 0;
-    axios.get("/userdata").then( res => {
+    axios.get("/UserData").then( res => {
         for (let i = 0; i < res.data.length; i++) {
-            if (username == res.data[i].username && password == res.data[i].password) {
+            if (username == res.data[i].username && passwd == res.data[i].passwd) {
                 isMatch = 1;
             }
         }
@@ -18,9 +18,9 @@ document.getElementById("login").onclick = function(){
 
 document.getElementById("signup").onclick = function(){
     var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-    axios.post("/userdata",{
-        newdata: {username,password}
+    var passwd = document.getElementById("passwd").value;
+    axios.post("/UserData",{
+        NewData: {username: username,passwd: passwd}
     }).then( res => {
         console.log("Sign Up Success");
     })

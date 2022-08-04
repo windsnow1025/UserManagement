@@ -28,9 +28,9 @@ function Show(callback){
 
 function Store(NewData){
     var username = NewData.username;
-    var password = NewData.password;
+    var passwd = NewData.passwd;
     let sql = `INSERT INTO Users (username, passwd) VALUES (?,?)`;
-    let sqldata = [username, password];
+    let sqldata = [username, passwd];
     connection.query(sql, sqldata, function (err, result) {
         if (err) throw err;
         console.log("1 record inserted");
