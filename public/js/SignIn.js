@@ -1,4 +1,4 @@
-document.getElementById("login").onclick = function(){
+document.getElementById("signin").onclick = function(){
     var username = document.getElementById("username").value;
     var passwd = document.getElementById("passwd").value;
     var isMatch = 0;
